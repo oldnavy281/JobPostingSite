@@ -1,0 +1,25 @@
+{
+  "name": "jobposting",
+  "version": "1.0.0",
+  "description": "web based project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oldnavy281/JobPostingSite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oldnavy281/JobPostingSite/issues"
+  },
+  "homepage": "https://github.com/oldnavy281/JobPostingSite#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.1",
+    "node": "^17.4.0"
+  }
+}
