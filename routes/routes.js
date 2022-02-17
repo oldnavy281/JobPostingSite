@@ -38,19 +38,22 @@ exports.index = (req, res) => {
 
 exports.create = (req, res) => {
     res.render('create', {
-        title: 'Add Person'
+        title: 'Create User'
     });
 };
 
-exports.createPerson = (req, res) => {
-    let person = new Person ({
-        name: req.body.name,
-        age: req.body.age,
-        species: req.body.species
+exports.signup = (req, res) => {
+    let user = new User ({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        dateOfBirth: req.body.dateOfBirth,
+        gender: req.body.gender,
+        username: req.body.username,
+        password: req.body.password
     });
-    person.save((err, person) => {
+    person.save((err, user) => {
         if(err) return consol.error(err);
-        console.log(req.body.name + ' added.');
+        console.log(req.body.firstName + ' ' + req.body.lastName + ' added.');
     });
     res.redirect('/');
 };
