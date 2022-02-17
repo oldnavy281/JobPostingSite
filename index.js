@@ -15,7 +15,7 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 
-// app.get('/', routes.index);
+app.get('/', routes.index);
 // app.get('/create', routes.create);
 // app.post('/create', urlencodedParser, routes.createPerson);
 // app.get('/edit/:id', routes.edit);
@@ -24,4 +24,4 @@ let urlencodedParser = bodyParser.urlencoded({
 // app.post('/details/:id', urlencodedParser, routes.details);
 // app.get('/delete/:id', routes.delete);
 
-app.listen(3000);
+app.listen(69);
