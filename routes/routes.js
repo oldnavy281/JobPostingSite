@@ -59,11 +59,11 @@ exports.signup = (req, res) => {
 };
 
 exports.edit = (req, res) => {
-    Person.findById(req.params.id, (err, person) => {
+    User.findById(req.params.id, (err, user) => {
         if(err) return console.error(err);
         res.render('edit', {
-            title: 'Edit Person',
-            person
+            title: 'Edit User Profile',
+            user
         })
     });
 };
@@ -90,7 +90,6 @@ exports.details = (req, res) => {
         person.age = req.body.age;
         person.species = req.body.species;
         person.image = req.body.image;
-
         res.redirect('/');
     }); 
 };
