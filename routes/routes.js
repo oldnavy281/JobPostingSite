@@ -24,10 +24,10 @@ let userSchema = mongoose.Schema ({
 
 // need to refactor so that login info and signup info can be passed to DB
 
-let Person = mongoose.model('People_Collection', personSchema);
+let User = mongoose.model('People_Collection', userSchema);
 
 exports.index = (req, res) => {
-   Person.find((err, person) => {
+   User.find((err, person) => {
         if(err) return console.error(err);
         res.render('index', {
             title: 'People List',
