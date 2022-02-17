@@ -13,11 +13,12 @@ let mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error'));
 mdb.once('open', callback => {});
 
-let personSchema = mongoose.Schema ({
-    name: String,
-    age: String,
-    species: String
+let loginSchema = mongoose.Schema ({
+    username: String,
+    password: String
 });
+
+// need to refactor so that login info and signup info can be passed to DB
 
 let Person = mongoose.model('People_Collection', personSchema);
 
