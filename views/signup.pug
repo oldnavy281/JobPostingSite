@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Welcome New User!
+    br
+
+    h2 Please provide soem basic information for us
+
+    form(action="", method="post")
+        input(type="text", name="firstName", placeholder="First Name")
+        input(type="text", name="lastName", placeholder="Last Name")
+        input(type="text", name="dateOfBirth", placeholder="Date of Birth")
+        input(type="text", name="gender", placeholder="Gender")
+        input(type="text", name="username", placeholder="Username")
+        input(type="text", name="password", placeholder="Password")
+        input(type="submit", name="submitButton", value="Create Account")
