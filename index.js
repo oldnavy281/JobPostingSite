@@ -1,7 +1,7 @@
 const express = require('express');
 const pug = require('pug');
 const bodyParser = require('body-parser');
-const routes = require('routes');
+const routes = require('./routes/routes');
 const path = require('path');
 // const { ppid } = require('process');
 
@@ -15,6 +15,8 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 
+console.log(routes)
+console.log(routes.index)
 app.get('/', routes.index);
 // app.get('/create', routes.create);
 // app.post('/create', urlencodedParser, routes.createPerson);
