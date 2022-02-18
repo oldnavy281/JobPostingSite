@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/oldnavy281/JobPostingSite#readme",
   "dependencies": {
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "express-session": "^1.17.2",
-    "mongoose": "^6.2.1",
+    "mogodb": "^0.0.1-security",
+    "mongoose": "^6.2.2",
     "node": "^17.4.0",
+    "nodemon": "^2.0.15",
     "pug": "^3.0.2",
     "routes": "^2.1.0"
   }
