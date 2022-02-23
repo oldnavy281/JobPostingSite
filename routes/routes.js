@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/data', {
-   useUnifiedTopology: true,
-   useNewUrlParser: true 
+    useUnifiedTopology: true,
+    useNewUrlParser: true 
 });
 
 //mongoose.set('useCreateIndex', true);
@@ -27,13 +27,13 @@ let userSchema = mongoose.Schema ({
 let User = mongoose.model('People_Collection', userSchema);
 
 exports.index = (req, res) => {
-   User.find((err, person) => {
+    User.find((err, person) => {
         if(err) return console.error(err);
         res.render('index', {
             title: 'People List',
             people: person
         });
-   })
+    })
 };
 
 exports.create = (req, res) => {
