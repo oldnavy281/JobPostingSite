@@ -6,8 +6,8 @@ mongoose.connect('mongodb://localhost/data', {
    useNewUrlParser: true 
 });
 
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
+//mongoose.set('useCreateIndex', true);
+//mongoose.set('useFindAndModify', false);
 
 let mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error'));
