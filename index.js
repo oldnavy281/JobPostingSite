@@ -18,12 +18,12 @@ let urlencodedParser = bodyParser.urlencoded({
 console.log(routes)
 console.log(routes.index)
 app.get('/', routes.index);
-//app.get('/create', routes.create);
+app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
-//app.get('/edit/:id', routes.edit);
-//app.post('/edit/:id', urlencodedParser, routes.editPerson);
-//app.get('/details/:id', routes.details);
-//app.post('/details/:id', urlencodedParser, routes.details);
-//app.get('/delete/:id', routes.delete);
+app.get('/edit/:id', routes.edit);
+app.post('/edit/:id', urlencodedParser, routes.editPerson);
+app.get('/details/:id', routes.details);
+app.post('/details/:id', urlencodedParser, routes.details);
+app.get('/delete/:id', routes.delete);
 
 app.listen(69);

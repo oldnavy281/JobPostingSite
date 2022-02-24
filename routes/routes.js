@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb://localhost:30001';
+const url = 'mongodb://localhost:27017';
 
 // Database Name
 const dbName = 'jobposting';
