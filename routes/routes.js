@@ -47,7 +47,7 @@ let userSchema = mongoose.Schema ({
 
 let User = mongoose.model('People_Collection', userSchema);
 
-exports.index = (req, res) => {
+exports.home = (req, res) => {
     User.find((err, person) => {
         if(err) return console.error(err);
         res.render('index', {
