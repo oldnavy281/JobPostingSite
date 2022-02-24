@@ -1,11 +1,30 @@
+const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:30001';
+
+// Database Name
+const dbName = 'jobposting';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});// const mongoose = require('mongoose');
+
+// mongoose.Promise = global.Promise;
 //
-mongoose.connect('mongodb://localhost/data');
-/*{
-    useUnifiedTopology: true,
-    useNewUrlParser: true 
-} */
+// mongoose.connect('mongodb://localhost/data');
+// {
+//     useUnifiedTopology: true,
+//     useNewUrlParser: true 
+// }
 //mongoose.set('useCreateIndex', true);
 //mongoose.set('useFindAndModify', false);
 

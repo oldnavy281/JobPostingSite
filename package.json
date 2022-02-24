@@ -20,10 +20,13 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "mogodb": "^0.0.1-security",
-    "mongoose": "^6.2.2",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.3",
     "node": "^17.4.0",
+    "nodejs": "^0.0.0",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",
-    "routes": "^2.1.0"
+    "routes": "^2.1.0",
+    "scss": "^0.2.4"
   }
 }
