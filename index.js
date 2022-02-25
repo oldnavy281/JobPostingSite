@@ -7,11 +7,11 @@ const path = require('path');
 
 const app = express();
 
-const port = process.env.PORT || "8000";
+const port = process.env.PORT || "420";
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 let urlencodedParser = bodyParser.urlencoded({
     extended: true
