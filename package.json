@@ -4,7 +4,7 @@
   "description": "web based project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,11 @@
     "mongoose": "^6.2.3",
     "node": "^17.4.0",
     "nodejs": "^0.0.0",
-    "nodemon": "^2.0.15",
     "pug": "^3.0.2",
     "routes": "^2.1.0",
     "scss": "^0.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

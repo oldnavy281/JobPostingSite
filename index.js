@@ -7,6 +7,8 @@ const path = require('path');
 
 const app = express();
 
+const port = process.env.PORT || "8000";
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -17,7 +19,12 @@ let urlencodedParser = bodyParser.urlencoded({
 
 console.log(routes)
 console.log(routes.index)
-app.get('/', routes.index);
+// app.get("/", (req, res) => {
+//     res.status(200).send("Fucking Kill Me");
+//   });routes.home
+app.get('/', (req, res) => {
+    res.render("home")
+});
 app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
 app.get('/edit/:id', routes.edit);
@@ -26,4 +33,7 @@ app.get('/details/:id', routes.details);
 app.post('/details/:id', urlencodedParser, routes.details);
 app.get('/delete/:id', routes.delete);
 
-app.listen(69);
+//app.listen("69");
+app.listen(port, () => {
+    console.log(`Listening to requests on http://localhost:${port}`);
+});
