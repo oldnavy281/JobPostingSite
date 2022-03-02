@@ -3,20 +3,20 @@ const mongoose = require('mongoose');
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
-
+const url = 'mongodb://localhost:27017/data';
+mongoose.connect(url);
 // Database Name
-const dbName = 'jobposting';
+//const dbName = 'jobposting';
 
 // Use connect method to connect to the server
-MongoClient.connect(url, function(err, client) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
+// mongoose.connect(url, function(err, client) {
+//   assert.equal(null, err);
+//   console.log("Connected successfully to server");
 
-  const db = client.db(dbName);
+  //});
 
-  client.close();
-});// const mongoose = require('mongoose');
+  //client.close();
+// const mongoose = require('mongoose');
 
 // mongoose.Promise = global.Promise;
 //
@@ -45,7 +45,7 @@ let userSchema = mongoose.Schema ({
 
 // need to refactor so that login info and signup info can be passed to DB
 
-let User = mongoose.model('People_Collection', userSchema);
+let User = mongoose.model('people_collection', userSchema);
 
 // exports.home = (req, res) => {
 //     User.find((err, person) => {
@@ -79,10 +79,11 @@ exports.signup = (req, res) => {
         username: req.body.username,
         password: req.body.password
     });
-    person.save((err, user) => {
-        if(err) return consol.error(err);
-        console.log(req.body.firstName + ' ' + req.body.lastName + ' added.');
-    });
+    user.save().then(user => console.log(user.firstName + ' ' + user.lastName + ' added.')).catch(err => console.log(err));
+    // user.save((err, user) => {
+    //     if(err) return console.error(err);
+    //     console.log(req.body.firstName + ' ' + req.body.lastName + ' added.');
+    // });
     res.redirect('/');
 };
 

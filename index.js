@@ -3,6 +3,7 @@ const pug = require('pug');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
+const res = require('express/lib/response');
 // const { ppid } = require('process');
 
 const app = express();
@@ -19,14 +20,10 @@ let urlencodedParser = bodyParser.urlencoded({
 
 console.log(routes)
 console.log(routes.index)
-// app.get("/", (req, res) => {
-//     res.status(200).send("Fucking Kill Me");
-//   });routes.home
-// app.get('/', (req, res) => {
-//     res.render("home")
-// });
+
 app.get('/', routes.home);
 app.get('/signup', routes.signupPage);
+app.post('/signup', urlencodedParser,routes.signup);
 app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
 app.get('/edit/:id', routes.edit);
