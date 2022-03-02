@@ -47,15 +47,22 @@ let userSchema = mongoose.Schema ({
 
 let User = mongoose.model('People_Collection', userSchema);
 
-exports.home = (req, res) => {
-    User.find((err, person) => {
-        if(err) return console.error(err);
-        res.render('index', {
-            title: 'People List',
-            people: person
-        });
-    })
-};
+// exports.home = (req, res) => {
+//     User.find((err, person) => {
+//         if(err) return console.error(err);
+//         res.render('index', {
+//             title: 'People List',
+//             people: person
+//         });
+//     })
+// };
+exports.home = (req,res) => {
+    res.render('home');
+}
+
+exports.signupPage = (req,res) => {
+    res.render('signup');
+}
 
 exports.create = (req, res) => {
     res.render('create', {

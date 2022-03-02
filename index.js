@@ -22,9 +22,11 @@ console.log(routes.index)
 // app.get("/", (req, res) => {
 //     res.status(200).send("Fucking Kill Me");
 //   });routes.home
-app.get('/', (req, res) => {
-    res.render("home")
-});
+// app.get('/', (req, res) => {
+//     res.render("home")
+// });
+app.get('/', routes.home);
+app.get('/signup', routes.signupPage);
 app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
 app.get('/edit/:id', routes.edit);
