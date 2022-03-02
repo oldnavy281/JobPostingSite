@@ -1,7 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 const assert = require('assert');
-//const res = require('express/lib/response');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
@@ -48,22 +47,15 @@ let userSchema = mongoose.Schema ({
 
 let User = mongoose.model('People_Collection', userSchema);
 
-// exports.home = (req, res) => {
-//     User.find((err, person) => {
-//         if(err) return console.error(err);
-//         res.render('index', {
-//             title: 'People List',
-//             people: person
-//         });
-//     })
-// };
-exports.home = (req,res) => {
-    res.render('home');
-}
-
-exports.signupPage = (req,res) => {
-    res.render('signup');
-}
+exports.home = (req, res) => {
+    User.find((err, person) => {
+        if(err) return console.error(err);
+        res.render('index', {
+            title: 'People List',
+            people: person
+        });
+    })
+};
 
 exports.create = (req, res) => {
     res.render('create', {
@@ -72,7 +64,6 @@ exports.create = (req, res) => {
 };
 
 exports.signup = (req, res) => {
-
     let user = new User ({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
