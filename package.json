@@ -22,11 +22,12 @@
     "mogodb": "^0.0.1-security",
     "mongod": "^2.0.0",
     "mongodb": "^4.4.0",
-    "mongoose": "^6.2.3",
+    "mongoose": "^6.2.4",
     "node": "^17.4.0",
     "nodejs": "^0.0.0",
     "pug": "^3.0.2",
     "routes": "^2.1.0",
+    "sass": "^1.49.9",
     "scss": "^0.2.4"
   },
   "devDependencies": {
