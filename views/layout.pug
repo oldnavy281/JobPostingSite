@@ -3,14 +3,19 @@ html
     head
         title=title
         link(rel='stylesheet' href='/style.css')
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous")
     body
         header
-            nav
-                ul
-                //- each item in config.menu
-                //-     a(href=item[1] target=item[2])
-                //-         div(class='menu_item')
-                //-             li(id=item[0]) #{item[0]}
+            nav(class="navbar navbar-light bg-light" style="background-color: #e3f2fd;")
+                ul 
+                    li 
+                        a(class="nav-link" href="signup") Sign Up
+                    li 
+                        a(class="nav-link" href="signin") Sign In
+                    li 
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" align-content="right">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
         h1 #{title}
         section
             block content 

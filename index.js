@@ -25,6 +25,8 @@ console.log(routes.index)
 app.get('/', routes.home);
 app.get('/signup', routes.signupPage);
 app.post('/signup', urlencodedParser,routes.signup);
+app.get('/', routes.home);
+app.post('', urlencodedParser,routes.addjobs);
 app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
 app.get('/edit/:id', routes.edit);
