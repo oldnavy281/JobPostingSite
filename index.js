@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
 const res = require('express/lib/response');
-
 // const { ppid } = require('process');
 
 const app = express();
@@ -25,9 +24,7 @@ console.log(routes.index)
 app.get('/', routes.home);
 app.get('/signup', routes.signupPage);
 app.post('/signup', urlencodedParser,routes.signup);
-app.get('/', routes.home);
-app.post('/', urlencodedParser,routes.addjobs);
-//app.get('/create', routes.create);
+app.get('/create', routes.create);
 //app.post('/create', urlencodedParser, routes.createPerson);
 app.get('/edit/:id', routes.edit);
 app.post('/edit/:id', urlencodedParser, routes.editPerson);

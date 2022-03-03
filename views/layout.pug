@@ -2,21 +2,45 @@ doctype
 html 
     head
         title=title
+        script(async src="https://cse.google.com/cse.js?cx=000888210889775888983:pqb3ch1ewhg")
         link(rel='stylesheet' href='/style.css')
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous")
     body
         header
-            nav(class="navbar navbar-light bg-light" style="background-color: #e3f2fd;")
-                ul 
-                    li 
-                        a(class="nav-link" href="signup") Sign Up
-                    li 
-                        a(class="nav-link" href="signin") Sign In
-                    li 
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" align-content="right">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-        h1 #{title}
+
+            nav(class="navbar navbar-dark bg-primary navbar-expand-lg")
+                div(class="container-fluid")
+                    a(class="navbar-brand" href="/") JobPosting
+                    button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                        span(class="navbar-toggler-icon")
+   
+                div(class="collapse navbar-collapse" id="navbarSupportedContent")
+                    ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+                        li(class="nav-item")
+                            a(class="nav-link" href="/signin") LogIn
+ 
+                        li(class="nav-item")
+                            a(class="nav-link" href="/signup") SignUp
+
+                    form(class="d-flex")
+                        //- input(class="form-control me-2" type="search" placeholder="Search" aria-label="Search")
+                        //- button(class="btn btn-outline-black" type="search") Search
+
+                        div(class="gcse-search")
+
+
+
+
+
+                        
+
+
+
+    h1 #{title}
         section
             block content 
-        footer
+        //- footer
+        //-     each item in config.menu
+        //-         a(href=item[1] target=item[2])
+        //-             div(class='menu_item')
+        //-                 li(id=item[0]) #{item[0]}

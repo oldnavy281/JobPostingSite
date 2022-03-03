@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/oldnavy281/JobPostingSite#readme",
   "dependencies": {
+    "booostrap": "^2.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "mogodb": "^0.0.1-security",
