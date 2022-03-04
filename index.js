@@ -23,7 +23,7 @@ console.log(routes.index)
 
 app.get('/', routes.home);
 app.get('/job', routes.jobs);
-app.post('/addJobs', routes.addJobs);
+app.post('/addJobs', urlencodedParser, routes.addJobs);
 app.get('/signup', routes.signupPage);
 app.post('/signup', urlencodedParser,routes.signup);
 app.get('/create', routes.create);
