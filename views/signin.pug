@@ -1,5 +1,15 @@
 extends layout 
 
 block content 
-    h1 Ha Loser you have to sign up 
-        
+    h1 Welcome Returning User
+    br
+
+    h2 Please sign in
+    br
+
+    form(action="", method="post")
+        input(type="text", name="username", placeholder="Username")
+        br
+        input(type="text", name="password", placeholder="Password")
+        br
+        input(type="submit", name="submitButton", )
