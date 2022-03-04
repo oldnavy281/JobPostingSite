@@ -1,7 +1,7 @@
 extends layout 
 
 block content 
-    h1 Post A Job Loser 
+    h1(class="userIntro") Post A Job Loser 
 
     form(id="signupForm", action="/addJobs", method="post") 
         input(class="signupForm", type="text", name="jobTitle", placeholder="Job Title")
