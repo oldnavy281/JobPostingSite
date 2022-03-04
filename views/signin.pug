@@ -1,17 +1,12 @@
 extends layout 
 
 block content 
-    h1 Welcome Returning User
-    br
+    h1(class="userIntro") Welcome Returning User
+    h3(class="userIntro") Please sign in
 
-    h2 Please sign in
-    br
-
-    form(action="/login", method="post")
-        input(type="text", name="username", placeholder="Username")
+    form(id="signupForm", action="/login", method="post")
+        input(class="signupForm", type="text", name="username", placeholder="Username")
         br
+        input(class="signupForm", type="text", name="password", placeholder="Password")
         br
-        input(type="text", name="password", placeholder="Password")
-        br
-        br
-        input(type="submit", name="submitButton", value="Sign In")
+        input(class="signupForm", type="submit", name="submitButton", value="Sign In")

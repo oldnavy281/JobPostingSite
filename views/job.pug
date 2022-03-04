@@ -1,10 +1,14 @@
 extends layout 
 
 block content 
-    h1 Post A Job Loser 
+    h1(class="userIntro") Post A Job Loser 
 
-    form(action="/addJobs", method="post") 
-        input(type="text", name="jobTitle", placeholder="Job Title")
-        input(type="number", name="jobSalary", placeholder="Salary")
-        input(type="text", name="jobDescription", placeholder="Job Description")
-        input(type="submit", name="submitButton", value="Post a Job")
+    form(id="signupForm", action="/addJobs", method="post") 
+        input(class="signupForm", type="text", name="jobTitle", placeholder="Job Title")
+        br
+        input(class="signupForm", type="number", name="jobSalary", placeholder="Salary")
+        br
+        input(class="signupForm", type="text", name="jobDescription", placeholder="Job Description")
+        br
+        input(class="signupForm", type="submit", name="submitButton", value="Post a Job")
+        br
