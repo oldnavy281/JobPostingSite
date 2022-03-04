@@ -64,8 +64,12 @@ let Job = mongoose.model('job_collection', jobSchema);
 //         });
 //     })
 // };
-exports.home = (req,res) => {
+exports.home = (req, res) => {
     res.render('home');
+}
+
+exports.signin = (req, res) => {
+    res.render('signin');
 }
 
 exports.signupPage = (req,res) => {
@@ -81,6 +85,21 @@ exports.create = (req, res) => {
         title: 'Create User'
     });
 };
+
+exports.login = (req, res) => {
+    let tempUser = new User ({
+        username: req.body.username,
+        password: req.body.password
+    });
+
+    model.findOne()
+
+    User.forEach(user => {
+        if (user.username == tempUser.username){
+            console.log(user.username + ' has logged in.').catch(err => console.log(err));
+        }
+    });
+}
 
 exports.addJobs = (req, res) => {
     let job = new Job ({
