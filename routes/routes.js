@@ -88,7 +88,8 @@ exports.addJobs = (req, res) => {
         jobSalary: req.body.jobSalary,
         jobDescription: req.body.jobDescription
     });
-    user.save().then(job => console.log(job.jobTitle + ' has been posted.')).catch(err => console.log(err));
+    job.save().then(job => console.log(job.jobTitle + ' has been posted.')).catch(err => console.log(err));
+    res.redirect('/');
 }
 
 exports.signup = (req, res) => {
