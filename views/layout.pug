@@ -10,39 +10,19 @@ html
 
             nav(class="navbar navbar-dark bg-primary navbar-expand-lg")
                 div(class="container-fluid")
-                    a(class="navbar-brand" href="/") JobPosting
-                    button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
-                        span(class="navbar-toggler-icon")
-   
-                div(class="collapse navbar-collapse" id="navbarSupportedContent")
                     ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+
+                        li(class="nav-item")
+                            a(class="nav-link" href="/")
+                                img(href="/" src="/NdiedLogo.png" alt="Ndied Logo")
                         li(class="nav-item")
                             a(class="nav-link" href="/signin") LogIn
- 
+
                         li(class="nav-item")
                             a(class="nav-link" href="/signup") SignUp
-                        li(class="nav-item")
-                            a(class="nav-link" href="/job") PostJobs 
-
-                    form(class="d-flex")
-                        //- input(class="form-control me-2" type="search" placeholder="Search" aria-label="Search")
-                        //- button(class="btn btn-outline-black" type="search") Search
-
-                        div(class="gcse-search")
-
-
-
-
-
-                        
-
-
+                div(class="gcse-search")
 
     h1 #{title}
         section
             block content 
-        //- footer
-        //-     each item in config.menu
-        //-         a(href=item[1] target=item[2])
-        //-             div(class='menu_item')
-        //-                 li(id=item[0]) #{item[0]}
+        footer     

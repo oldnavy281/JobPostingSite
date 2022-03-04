@@ -1,6 +1,38 @@
 body {
-  background: aqua;
+  background-color: #999999;
   padding: 10px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.homePageIntro {
+  text-align: center;
+  align-items: center;
+  margin: 20px;
+  position: relative;
+  top: 200px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.userIntro {
+  text-align: center;
+  margin: 20px;
+}
+
+.signupForm {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+}
+
+#signupForm {
+  font-size: 20px;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
   margin: 10px;
 }
 
