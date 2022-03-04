@@ -36,6 +36,13 @@ app.get('/details/:id', routes.details);
 app.post('/details/:id', urlencodedParser, routes.details);
 app.get('/delete/:id', routes.delete);
 
+app.use('/static', express.static('public'));
+app.use('/css', express.static('css'));
+app.use('/js', express.static('js'));
+app.use('/files', express.static('files'));
+app.use('/images', express.static('images'));
+
+
 //app.listen("69");
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
