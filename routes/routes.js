@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 const assert = require('assert');
+const res = require('express/lib/response');
 
 // Connection URL
 const url = 'mongodb://localhost:27017/data';
@@ -43,9 +44,16 @@ let userSchema = mongoose.Schema ({
     password: String
 });
 
+let jobSchema = mongoose.Schema ({
+    jobTitle: String,
+    jobSalary: Number,
+    jobDescription: String
+});
+
 // need to refactor so that login info and signup info can be passed to DB
 
 let User = mongoose.model('people_collection', userSchema);
+let Job = mongoose.model('job_collection', jobSchema);
 
 // exports.home = (req, res) => {
 //     User.find((err, person) => {
@@ -64,11 +72,24 @@ exports.signupPage = (req,res) => {
     res.render('signup');
 }
 
+exports.jobs = (req, res) => {
+    res.render('job');
+}
+
 exports.create = (req, res) => {
     res.render('create', {
         title: 'Create User'
     });
 };
+
+exports.addJobs = (req, res) => {
+    let job = new Job ({
+        jobTitle: req.body.jobTitle,
+        jobSalary: req.body.jobSalary,
+        jobDescription: req.body.jobDescription
+    });
+    user.save().then(job => console.log(job.jobTitle + ' has been posted.')).catch(err => console.log(err));
+}
 
 exports.signup = (req, res) => {
     let user = new User ({

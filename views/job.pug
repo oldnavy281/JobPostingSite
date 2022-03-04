@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+    h1 Post A Job Loser 
+
+    form(action="/addJobs", method="post") 
+        input(type="text", name="jobTitle", placeholder="Job Title")
+        input(type="number", name="jobSalary", placeholder="Salary")
+        input(type="text", name="jobDescription", placeholder="Job Description")
