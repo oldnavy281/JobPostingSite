@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
 const res = require('express/lib/response');
+
 // const { ppid } = require('process');
 
 const app = express();
@@ -13,6 +14,7 @@ const port = process.env.PORT || "420";
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static('public'));
 
 let urlencodedParser = bodyParser.urlencoded({
     extended: true
@@ -25,7 +27,7 @@ app.get('/', routes.home);
 app.get('/job', routes.jobs);
 app.post('/addJobs', urlencodedParser, routes.addJobs);
 app.get('/signin', routes.signin);
-app.post('/login', routes.login);
+app.post('/login', urlencodedParser, routes.login);
 app.get('/signup', routes.signupPage);
 app.post('/signup', urlencodedParser,routes.signup);
 app.get('/create', routes.create);

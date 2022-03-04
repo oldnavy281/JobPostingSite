@@ -87,18 +87,15 @@ exports.create = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    let tempUser = new User ({
+    console.log(req.body);
+    // model.findOne({name: new RegExp('^'+tempUser.username+'$', "i")}, (req, res) => {
+    //     console.log(user.username + ' has logged in.').catch(err => console.log(err));
+    // });
+
+    User.findOne({
         username: req.body.username,
         password: req.body.password
-    });
-
-    model.findOne()
-
-    User.forEach(user => {
-        if (user.username == tempUser.username){
-            console.log(user.username + ' has logged in.').catch(err => console.log(err));
-        }
-    });
+    }).then(tempUser => console.log(tempUser.username + ' has logged in.')).catch(err => console.log(err));
 }
 
 exports.addJobs = (req, res) => {
