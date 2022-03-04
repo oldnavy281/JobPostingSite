@@ -84,11 +84,12 @@ exports.create = (req, res) => {
 
 exports.addJobs = (req, res) => {
     let job = new Job ({
-        jobTitle: req.body.jobTitle,
+        jobTitle: req.body.jobTitles,
         jobSalary: req.body.jobSalary,
         jobDescription: req.body.jobDescription
     });
     user.save().then(job => console.log(job.jobTitle + ' has been posted.')).catch(err => console.log(err));
+    res.redirect('/');
 }
 
 exports.signup = (req, res) => {
