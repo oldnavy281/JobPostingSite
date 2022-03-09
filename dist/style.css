@@ -11,7 +11,7 @@ body {
   align-items: center;
   margin: 20px;
   position: relative;
-  top: 200px;
+  top: 150px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -34,6 +34,16 @@ body {
   text-align: center;
   padding: 5px;
   margin: 10px;
+}
+
+#navLogo {
+  max-width: 100px;
+  max-height: 40px;
+}
+
+#homepageLogo {
+  max-width: 550px;
+  max-height: 225px;
 }
 
 /*# sourceMappingURL=style.css.map */
