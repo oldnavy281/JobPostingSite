@@ -4,14 +4,15 @@ body {
   margin: 10px;
   align-items: center;
   text-align: center;
+  align-content: center;
 }
 
 .homePageIntro {
   text-align: center;
   align-items: center;
-  margin: 20px;
+  margin: 10px;
   position: relative;
-  top: 150px;
+  top: 50px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -44,6 +45,25 @@ body {
 #homepageLogo {
   max-width: 550px;
   max-height: 225px;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  left: 550px;
+}
+
+.jobsTable {
+  padding: 10px;
+  margin: 5px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+#jobsTable {
+  align-items: center;
+  align-content: center;
+  position: relative;
+  left: 90px;
 }
 
 /*# sourceMappingURL=style.css.map */

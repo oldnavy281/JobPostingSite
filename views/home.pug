@@ -1,26 +1,27 @@
 extends layout
 
 block content
-    img(id="homepageLogo" src="/ndiedLogo.png", alt="logo")
+    
     h1(class="homePageIntro") Welcome to ndied, the best place to find or look for a job.
-    h2(class="homePageIntro") Please, sign up for an account today to make sure you can be seen by potential workers or hirers 
-     
-    
+    h2(class="homePageIntro") Please, sign up for an account today to make sure you can be seen by potential workers or hirers.
+    br 
+    h1(class="homePageIntro") Current Jobs
+    br
 
-    h3(class="homePageIntro") Current Jobs
-    
-    table
-        thead 
-            tr 
-                th Job Title 
-                th Job Salary 
-                th Job Description
-        tbody 
+    table(id="jobsTable")
+        thead(class="jobsTable") 
+            tr(class="jobsTable")  
+                th(class="jobsTable") Job Title 
+                th(class="jobsTable") Job Salary 
+                th(class="jobsTable") Job Description
+        tbody(class="jobsTable") 
             each j in jobList
-                tr 
+                tr(class="jobsTable")  
                     form(action="") 
-                        td= j.jobTitle
-                        td= j.jobSalary
-                        td= j.jobDescription 
-                        td 
+                        td(class="jobsTable")= j.jobTitle
+                        td(class="jobsTable")= j.jobSalary
+                        td(class="jobsTable")= j.jobDescription 
+                        td(class="jobsTable") 
                             input(class="signupForm",type="submit", name="submitButton", value="Apply")
+    br
+    img(id="homepageLogo" src="/ndiedLogo.png", alt="logo")
