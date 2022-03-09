@@ -25,6 +25,7 @@ console.log(routes.index)
 
 app.get('/', routes.home);
 app.get('/job', routes.jobs);
+//app.get('/job', routes.fillTable);
 app.post('/addJobs', urlencodedParser, routes.addJobs);
 app.get('/signin', routes.signin);
 app.post('/login', urlencodedParser, routes.login);

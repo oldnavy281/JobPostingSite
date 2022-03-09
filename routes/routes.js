@@ -2,6 +2,8 @@ const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 const assert = require('assert');
 const res = require('express/lib/response');
+const { Router } = require('routes');
+const { Console } = require('console');
 
 // Connection URL
 const url = 'mongodb://localhost:27017/data';
@@ -64,8 +66,22 @@ let Job = mongoose.model('job_collection', jobSchema);
 //         });
 //     })
 // };
-exports.home = (req, res) => {
-    res.render('home');
+exports.home = async (req, res) => {
+    // Job.find(function(err, docs) {
+    //     var jobChunks = [];
+    //     var chunkSize = 2;
+    //     for (var i = 0; i < docs.length; i += chunkSize) {
+    //         jobChunks.push(docs.slice(i, i + chunkSize));
+    //     }
+  
+    //     // log the `productChunks` variable to the console in order to verify the format of the data
+    //     console.log(jobChunks);
+  
+    //     return res.render('home', {jobChunks});
+    //   });
+    var jobList = await Job.find({});
+    console.log(jobList);
+    res.render('home', {jobList})
 }
 
 exports.signin = (req, res) => {
@@ -86,6 +102,7 @@ exports.create = (req, res) => {
     });
 };
 
+
 exports.login = (req, res) => {
     console.log(req.body);
     // model.findOne({name: new RegExp('^'+tempUser.username+'$', "i")}, (req, res) => {
@@ -98,6 +115,29 @@ exports.login = (req, res) => {
     }).then(tempUser => console.log(tempUser.username + ' has logged in.')).catch(err => console.log(err));
 }
 
+exports.fillTable = (req, res) => {
+    Job.find(function(err, docs) {
+        var jobChunks = [];
+        var chunkSize = 2;
+        for (var i = 0; i < docs.length; i += chunkSize) {
+            jobChunks.push(docs.slice(i, i + chunkSize));
+        }
+  
+        // log the `productChunks` variable to the console in order to verify the format of the data
+        console.log(jobChunks);
+  
+        return res.render('home', {jobChunks});
+      });
+
+    // Job.find({}).toArray(function(err, jobList){
+    //         console.log(jobList.length())
+    //         res.render('home', { 'home': jobList });
+    //     })
+    // var jobList = Job.find({});
+    // Console.log(jobList);
+    // res.render('home', {jobList})
+}
+
 exports.addJobs = (req, res) => {
     let job = new Job ({
         jobTitle: req.body.jobTitle,
@@ -107,6 +147,7 @@ exports.addJobs = (req, res) => {
     job.save().then(job => console.log(job.jobTitle + ' has been posted.')).catch(err => console.log(err));
     res.redirect('/');
 }
+
 
 exports.signup = (req, res) => {
     let user = new User ({
