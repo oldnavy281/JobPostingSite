@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    h1(class="homePageIntro") Welcome to ndied, the best place to find or look for a job.
+    br 
+    h1(class="homePageIntro") Your information
+    br
+
+    table(id="jobsTable")
+        thead(class="usersTable") 
+            tr(class="usersTable")  
+                th(class="usersTable") Your Name 
+                th(class="userTable") Your Date of Birth
+                th(class="usersTable") Your Gender
+                th(class="usersTable") Your Username
+        tbody(class="usersTable") 
+            each u in userList
+                tr(class="usersTable")  
+                    form(action="") 
+                        td(class="jobsTable")= u.firstName + " " + u.lastName
+                        td(class="jobsTable")= u.dateOfBirth 
+                        td(class="jobsTable")= u.gender
+                        td(class="jobsTable")= u.username    
+        br
