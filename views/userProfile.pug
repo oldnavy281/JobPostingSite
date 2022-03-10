@@ -15,11 +15,11 @@ block content
                 th(class="usersTable") Your Gender
                 th(class="usersTable") Your Username
         tbody(class="usersTable") 
-            each u in userList
+            
                 tr(class="usersTable")  
                     form(action="") 
-                        td(class="jobsTable")= u.firstName + " " + u.lastName
-                        td(class="jobsTable")= u.dateOfBirth 
-                        td(class="jobsTable")= u.gender
-                        td(class="jobsTable")= u.username    
+                        td(class="jobsTable")= currentUser.firstName + " " + currentUser.lastName
+                        td(class="jobsTable")= currentUser.dateOfBirth 
+                        td(class="jobsTable")= currentUser.gender
+                        td(class="jobsTable")= currentUser.username    
         br
