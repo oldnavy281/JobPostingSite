@@ -23,3 +23,18 @@ block content
                         td(class="jobsTable")= currentUser.gender
                         td(class="jobsTable")= currentUser.username    
         br
+        br
+        br
+
+    table(id="jobsTable")
+        thead(class="usersTable")
+            tr(class="usersTable")
+                th() Username
+                th() Job Applied to
+        
+        tbody()
+            each currentUser in appliedList
+                tr()
+                    form(action="")
+                        td()= currentUser.username
+                        td()= currentUser.jobTitle
