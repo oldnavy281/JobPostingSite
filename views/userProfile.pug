@@ -33,8 +33,8 @@ block content
                 th() Job Applied to
         
         tbody()
-            each currentUser in appliedList
+            each job in jobList
                 tr()
                     form(action="")
                         td()= currentUser.username
-                        td()= currentUser.jobTitle
+                        td()= job.jobTitle 

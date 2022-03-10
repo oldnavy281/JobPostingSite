@@ -94,6 +94,7 @@ exports.home = async (req, res) => {
     res.render('home', {jobList})
 }
 
+
 exports.signin = (req, res) => {
     res.render('signin');
 }
@@ -122,12 +123,11 @@ exports.apply = async (req, res) => {
         applyJob: jobID
     })
     
-    console.log(apply);
+    //console.log(apply);
     apply.save().then(a => console.log(currentUser.username + ' has applied for ' + jobID)).catch(err => console.log(err));
     res.redirect('/');
     
 }
-
 
 exports.login = async (req, res) => {
     // model.findOne({name: new RegExp('^'+tempUser.username+'$', "i")}, (req, res) => {
@@ -150,8 +150,20 @@ exports.login = async (req, res) => {
     res.redirect('/');
 }
 
-exports.userProfile = (req, res) => {
-    res.render('userProfile', {currentUser});
+exports.userProfile = async (req, res) => {
+    var appliedList = await Applied.find({
+        applier: currentUser._id
+    });
+    var jobList = [];
+    for(const a of appliedList) {
+            var j = await Job.find ({
+            _id: a.applyJob
+            });
+            jobList.push(j[0]); 
+    }
+    console.log(jobList);
+    console.log(appliedList);
+    res.render('userProfile', {currentUser, jobList});
 }
 
 exports.fillTable = (req, res) => {
