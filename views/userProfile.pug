@@ -7,7 +7,7 @@ block content
     h1(class="homePageIntro") Your information
     br
 
-    table(id="jobsTable")
+    table(id="usersTable")
         thead(class="usersTable") 
             tr(class="usersTable")  
                 th(class="usersTable") Your Name 
@@ -26,15 +26,15 @@ block content
         br
         br
 
-    table(id="jobsTable")
+    table(id="usersTable")
         thead(class="usersTable")
             tr(class="usersTable")
                 th() Username
                 th() Job Applied to
         
-        tbody()
+        tbody(class="usersTable") 
             each job in jobList
-                tr()
+                tr(class="usersTable") 
                     form(action="")
-                        td()= currentUser.username
-                        td()= job.jobTitle 
+                        td(class="usersTable") = currentUser.username
+                        td(class="usersTable") = job.jobTitle 
