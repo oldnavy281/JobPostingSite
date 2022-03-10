@@ -102,9 +102,12 @@ exports.create = (req, res) => {
     });
 };
 
+var currentUser = new User();
 
-exports.login = (req, res) => {
-    console.log(req.body);
+
+
+
+exports.login = async (req, res) => {
     // model.findOne({name: new RegExp('^'+tempUser.username+'$', "i")}, (req, res) => {
     //     console.log(user.username + ' has logged in.').catch(err => console.log(err));
     // });
@@ -113,6 +116,20 @@ exports.login = (req, res) => {
         username: req.body.username,
         password: req.body.password
     }).then(tempUser => console.log(tempUser.username + ' has logged in.')).catch(err => console.log(err));
+    currentUser = await User.findOne({
+        username: req.body.username,
+        password: req.body.password
+    });
+    console.log(await User.findOne({
+        username: req.body.username,
+        password: req.body.password
+    }));
+    console.log(currentUser);
+    res.redirect('/');
+}
+
+exports.userProfile = (req, res) => {
+    res.render('userProfile', {currentUser});
 }
 
 exports.fillTable = (req, res) => {
@@ -125,6 +142,7 @@ exports.fillTable = (req, res) => {
   
         // log the `productChunks` variable to the console in order to verify the format of the data
         console.log(jobChunks);
+        
   
         return res.render('home', {jobChunks});
       });
