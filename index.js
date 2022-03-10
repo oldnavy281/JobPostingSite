@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
 const res = require('express/lib/response');
+const { parentPort } = require('worker_threads');
 
 // const { ppid } = require('process');
 
@@ -27,6 +28,7 @@ app.get('/', routes.home);
 app.get('/job', routes.jobs);
 //app.get('/job', routes.fillTable);
 app.post('/addJobs', urlencodedParser, routes.addJobs);
+app.post(`/apply/:id`, urlencodedParser, routes.apply);
 app.get('/userProfile', routes.userProfile);
 app.get('/signin', routes.signin);
 app.post('/login', urlencodedParser, routes.login);

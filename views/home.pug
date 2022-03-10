@@ -16,12 +16,12 @@ block content
                 th(class="jobsTable") Job Description
         tbody(class="jobsTable") 
             each j in jobList
-                tr(class="jobsTable")  
-                    form(action="") 
-                        td(class="jobsTable")= j.jobTitle
-                        td(class="jobsTable")= j.jobSalary
-                        td(class="jobsTable")= j.jobDescription 
+                form(action=`/apply/${j._id}` method="post")
+                    tr(class="jobsTable")  
+                        td(class="jobsTable" name="jTitle")= j.jobTitle
+                        td(class="jobsTable" name="jSalary")= j.jobSalary
+                        td(class="jobsTable" name="jDescription")= j.jobDescription 
                         td(class="jobsTable") 
-                            input(class="signupForm",type="submit", name="submitButton", value="Apply")
+                             input(class="signupForm",type="submit", name="submitButton", value="Apply")
     br
     img(id="homepageLogo" src="/ndiedLogo.png", alt="logo")

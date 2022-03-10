@@ -4,6 +4,7 @@ const assert = require('assert');
 const res = require('express/lib/response');
 const { Router } = require('routes');
 const { Console } = require('console');
+const { stringify } = require('querystring');
 
 // Connection URL
 const url = 'mongodb://localhost:27017/data';
@@ -52,11 +53,20 @@ let jobSchema = mongoose.Schema ({
     jobDescription: String
 });
 
+
+
 // need to refactor so that login info and signup info can be passed to DB
 
 let User = mongoose.model('people_collection', userSchema);
 let Job = mongoose.model('job_collection', jobSchema);
 
+
+let applySchema = mongoose.Schema ({
+    applier: {type: mongoose.Schema.Types.ObjectId, ref: User},
+    applyJob: {type: mongoose.Schema.Types.ObjectId, ref: Job},
+});
+
+let Applied = mongoose.model('applied_collection', applySchema);
 // exports.home = (req, res) => {
 //     User.find((err, person) => {
 //         if(err) return console.error(err);
@@ -80,7 +90,7 @@ exports.home = async (req, res) => {
     //     return res.render('home', {jobChunks});
     //   });
     var jobList = await Job.find({});
-    console.log(jobList);
+    //console.log(jobList);
     res.render('home', {jobList})
 }
 
@@ -104,7 +114,19 @@ exports.create = (req, res) => {
 
 var currentUser = new User();
 
+exports.apply = async (req, res) => {
+    const jobID = req.params.id;
 
+    var apply = await new Applied ({
+        applier: currentUser._id,
+        applyJob: jobID
+    })
+    
+    console.log(apply);
+    apply.save().then(a => console.log(currentUser.username + ' has applied for ' + jobID)).catch(err => console.log(err));
+    res.redirect('/');
+    
+}
 
 
 exports.login = async (req, res) => {
@@ -120,11 +142,11 @@ exports.login = async (req, res) => {
         username: req.body.username,
         password: req.body.password
     });
-    console.log(await User.findOne({
-        username: req.body.username,
-        password: req.body.password
-    }));
-    console.log(currentUser);
+    // console.log(await User.findOne({
+    //     username: req.body.username,
+    //     password: req.body.password
+    // }));
+    // console.log(currentUser);
     res.redirect('/');
 }
 
@@ -141,7 +163,7 @@ exports.fillTable = (req, res) => {
         }
   
         // log the `productChunks` variable to the console in order to verify the format of the data
-        console.log(jobChunks);
+        //console.log(jobChunks);
         
   
         return res.render('home', {jobChunks});
