@@ -37,6 +37,6 @@ block content
             each job in jobList
                 tr(class="usersTable") 
                     form(action="")
-                        td(class="usersTable")= currentUser.username
+                        td(class="usersTable")= currentUser.firstName + " " + currentUser.lastName
                         td(class="usersTable")= job.jobTitle 
                         td(class="usersTable")= job.jobSalary
