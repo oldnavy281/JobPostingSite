@@ -29,12 +29,14 @@ block content
     table(id="usersTable")
         thead(class="usersTable")
             tr(class="usersTable")
-                th() Username
-                th() Job Applied to
-        
+                th(class="usersTable") Username
+                th(class="usersTable") Job Applied to
+                th(class="usersTable") Job Salary
+                br
         tbody(class="usersTable") 
             each job in jobList
                 tr(class="usersTable") 
                     form(action="")
                         td(class="usersTable")= currentUser.username
                         td(class="usersTable")= job.jobTitle 
+                        td(class="usersTable")= job.jobSalary
