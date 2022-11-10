@@ -137,7 +137,7 @@ exports.login = async (req, res) => {
     User.findOne({
         username: req.body.username,
         password: req.body.password
-    }).then(tempUser => console.log(tempUser.username + ' has logged in.')).catch(err => console.log(err));
+    }).then(tempUser => alert(tempUser.username + ' has logged in.')).catch(err => console.log(err));
     currentUser = await User.findOne({
         username: req.body.username,
         password: req.body.password
